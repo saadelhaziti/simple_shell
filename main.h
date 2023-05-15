@@ -9,6 +9,8 @@
 #include <sys/types.h>
 #include <sys/wait.h>
 
+extern char **environ;
+
 void shell(void);
 ssize_t read_cmd(char **line, size_t *len);
 int tokenize(char *line, char **arg);

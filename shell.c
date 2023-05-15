@@ -1,5 +1,17 @@
 #include "main.h"
 
+void env(void)
+{
+
+    char **env = environ;
+
+    while (*env != NULL) {
+        printf("%s\n", *env);
+        env++;
+    }
+
+
+}
 
 /**
  * shell-> the brain of mini shell
@@ -18,6 +30,11 @@ void shell(void)
 		{
 			exit(EXIT_SUCCESS);
 		}
+		if (strcmp(line,"env\n") == 0)
+		{
+			env();
+		}
+		
 
 		tokenize(line, arg);
 
