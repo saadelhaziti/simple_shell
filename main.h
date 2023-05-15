@@ -10,5 +10,9 @@
 #include <sys/wait.h>
 
 void shell(void);
+ssize_t read_cmd(char **line, size_t *len);
+int tokenize(char *line, char **arg);
+void _path(char *bin, char *path, char **full);
+void execute(char **arg, char *full);
 
 #endif
