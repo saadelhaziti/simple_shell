@@ -16,7 +16,7 @@ void execute(char **arg, char *full)
 		if (execve(full, arg, NULL) == -1)
 		{
 			perror("./shell");
-			break;
+			exit(EXIT_FAILURE);
 		}
 	}
 	else
