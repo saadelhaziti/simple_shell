@@ -1,16 +1,19 @@
 #include "main.h"
 
+/*
+* env -> prints the environment variables
+*/
+
 void env(void)
 {
 
-    char **env = environ;
+	char **env = environ;
 
-    while (*env != NULL) {
-        printf("%s\n", *env);
-        env++;
-    }
-
-
+	while (*env != NULL)
+	{
+		printf("%s\n", *env);
+		env++;
+	}
 }
 
 /**
@@ -34,7 +37,7 @@ void shell(void)
 		{
 			env();
 		}
-		
+
 
 		tokenize(line, arg);
 
