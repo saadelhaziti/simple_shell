@@ -33,7 +33,7 @@ void shell(void)
 		{
 			exit(EXIT_SUCCESS);
 		}
-		if (strcmp(line,"env\n") == 0)
+		if (strcmp(line, "env\n") == 0)
 		{
 			env();
 		}
