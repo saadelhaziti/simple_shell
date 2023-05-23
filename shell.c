@@ -1,7 +1,7 @@
 #include "main.h"
 
-/*
-* env -> prints the environment variables
+/**
+* env - prints the environment variables
 */
 
 void env(void)
