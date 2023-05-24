@@ -26,9 +26,20 @@ void shell(void)
 	size_t len = 0;
 	ssize_t read;
 
-	read = read_cmd(&line, &len);
-	while (read != -1)
+	
+	while (1)
 	{
+		read = read_cmd(&line, &len);
+
+		if (line[read - 1] == '\n')
+		{
+			line[read - 1] = '\0';
+		}
+		if (line[0] == '\0')
+		{
+			continue;
+		}
+		
 		if (strcmp(line, "exit\n") == 0)
 		{
 			exit(EXIT_SUCCESS);
@@ -45,7 +56,6 @@ void shell(void)
 
 		execute(arg, full);
 
-		read = read_cmd(&line, &len);
 	}
 
 	free(line);

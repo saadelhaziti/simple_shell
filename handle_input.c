@@ -11,8 +11,17 @@
 
 ssize_t read_cmd(char **line, size_t *len)
 {
+	ssize_t readt = 0;
+
 	write(1, "($) ", 4);
-	return (getline(line, len, stdin));
+	readt = getline(line, len, stdin);
+	if (readt == -1)
+	{
+		exit(EXIT_FAILURE);
+	}
+	
+	return (readt);
+	
 }
 
 /**
