@@ -17,9 +17,24 @@ void env(void)
 }
 
 /**
- * shell-> the brain of mini shell
+ * trim_input - trim string
+ * @str: string to be trimmed
+ * Return: 1 if there only space or tab in string otherwise 0
  */
+int trim_input(char *str)
+{
+	int i;
 
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] != ' ' && str[i] != '\t')
+			return (0);
+	}
+	return (1);
+}
+/**
+ * shell - the shell
+ */
 void shell(void)
 {
 	char *line = NULL, *arg[10], *path = "/bin/", *full;
@@ -37,7 +52,10 @@ void shell(void)
 		{
 			continue;
 		}
-
+		if (trim_input(line))
+		{
+			break;
+		}
 		if (strcmp(line, "exit") == 0)
 		{
 			free(line);
