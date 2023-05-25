@@ -40,7 +40,6 @@ void shell(void)
 
 		if (strcmp(line, "exit") == 0)
 		{
-			free(full);
 			free(line);
 			exit(EXIT_SUCCESS);
 		}
