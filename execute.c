@@ -5,9 +5,10 @@
  *
  * @arg: input
  * @full: input
+ * @line: input
  */
 
-void execute(char **arg, char *full)
+void execute(char **arg, char *full, char *line)
 {
 	int pid = fork();
 
@@ -15,6 +16,8 @@ void execute(char **arg, char *full)
 	{
 		if (execve(full, arg, NULL) == -1)
 		{
+			free(full);
+			free(line);
 			perror("./shell");
 			exit(EXIT_FAILURE);
 		}

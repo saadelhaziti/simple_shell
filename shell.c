@@ -1,8 +1,8 @@
 #include "main.h"
 
 /**
-* env - prints the environment variables
-*/
+ * env - prints the environment variables
+ */
 
 void env(void)
 {
@@ -26,10 +26,8 @@ void shell(void)
 	size_t len = 0;
 	ssize_t read;
 
-
-	while (1)
+	while ((read = read_cmd(&line, &len)) != -1)
 	{
-		read = read_cmd(&line, &len);
 
 		if (line[read - 1] == '\n')
 		{
@@ -42,20 +40,23 @@ void shell(void)
 
 		if (strcmp(line, "exit\n") == 0)
 		{
+			free(full);
+			free(line);
 			exit(EXIT_SUCCESS);
 		}
 		if (strcmp(line, "env\n") == 0)
 		{
 			env();
+			free(line);
+			free(full);
+			exit(EXIT_SUCCESS);
 		}
-
 
 		tokenize(line, arg);
 
 		_path(arg[0], path, &full);
 
-		execute(arg, full);
-
+		execute(arg, full, line);
 	}
 
 	free(line);
