@@ -22,7 +22,7 @@ ssize_t read_cmd(char **line, size_t *len)
 	{
 		if (!isatty(STDIN_FILENO))
 		{
-			return(-1);
+			return (-1);
 		}
 		free(line);
 		exit(EXIT_FAILURE);
