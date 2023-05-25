@@ -19,9 +19,9 @@ ssize_t read_cmd(char **line, size_t *len)
 	{
 		exit(EXIT_FAILURE);
 	}
-	
+
 	return (readt);
-	
+
 }
 
 /**

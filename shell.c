@@ -26,7 +26,7 @@ void shell(void)
 	size_t len = 0;
 	ssize_t read;
 
-	
+
 	while (1)
 	{
 		read = read_cmd(&line, &len);
@@ -39,7 +39,7 @@ void shell(void)
 		{
 			continue;
 		}
-		
+
 		if (strcmp(line, "exit\n") == 0)
 		{
 			exit(EXIT_SUCCESS);
