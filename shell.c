@@ -38,17 +38,16 @@ void shell(void)
 			continue;
 		}
 
-		if (strcmp(line, "exit\n") == 0)
+		if (strcmp(line, "exit") == 0)
 		{
 			free(full);
 			free(line);
 			exit(EXIT_SUCCESS);
 		}
-		if (strcmp(line, "env\n") == 0)
+		if (strcmp(line, "env") == 0)
 		{
 			env();
 			free(line);
-			free(full);
 			exit(EXIT_SUCCESS);
 		}
 
