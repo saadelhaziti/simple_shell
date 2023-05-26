@@ -15,6 +15,6 @@ void shell(void);
 ssize_t read_cmd(char **line, size_t *len);
 int tokenize(char *line, char **arg);
 void _path(char *bin, char *path, char **full);
-void execute(char **arg, char *full, char *line);
+int execute(char **arg, char *full, char *line);
 
 #endif

@@ -6,11 +6,14 @@
  * @arg: input
  * @full: input
  * @line: input
+ * Return: exit status of fork
  */
 
-void execute(char **arg, char *full, char *line)
+int execute(char **arg, char *full, char *line)
 {
 	int pid = fork();
+	int status = 0;
+	int fork_status = 0;
 
 	if (pid == 0)
 	{
@@ -24,7 +27,10 @@ void execute(char **arg, char *full, char *line)
 	}
 	else
 	{
-		wait(NULL);
+		wait(&status);
 		free(full);
+		if (WIFEXITED(status))
+			fork_status = WEXITSTATUS(status);
 	}
+	return (fork_status);
 }
